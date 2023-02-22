@@ -94,7 +94,9 @@ const ReactRogue = ({ width, height, tileSize }) => {
         >
           <span style={{ color: "white" }}>Legend:</span>
           <div style={{ flex: "30%" }}>{renderGenerics()}</div>
-          <div style={{ flex: "30%" }}>{renderLegend()}</div>
+          <div style={{ flex: "30%" }}>
+            {renderLegend(world.player.inventory)}
+          </div>
           <div style={{ flex: "30%" }}>{renderMonsters()}</div>
         </div>
         <div
@@ -115,13 +117,19 @@ const ReactRogue = ({ width, height, tileSize }) => {
 
 export default ReactRogue;
 
-const renderLegend = () => (
+const renderLegend = (inventory) => (
   <ul>
-    {lootTable.map((loot, index) => (
-      <li key={index} style={{ color: loot.color }}>
-        {loot.ascii}: {loot.name}
-      </li>
-    ))}
+    {lootTable.map((loot, index) => {
+      const quantity = inventory.reduce((acc, pilot) => {
+        if (pilot.name === loot.name) acc++;
+        return acc;
+      }, 0);
+      return (
+        <li key={index} style={{ color: loot.color }}>
+          {loot.ascii}: {loot.name} (X{quantity})
+        </li>
+      );
+    })}
   </ul>
 );
 
