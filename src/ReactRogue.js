@@ -1,7 +1,6 @@
 import React from "react";
 import InputManager, { actions } from "./model/InputManager";
 import Spawner, { lootTable, monsterTable } from "./model/Spawner";
-import { stairsAttribute } from "./model/Stairs";
 import World from "./model/World";
 
 /**
