@@ -16,8 +16,7 @@ class Stairs extends Entity {
       world.addToHistory("You move downstairs...");
       world.floor = world.floor + 1;
       world.createCellularMap();
-      world.player.x = 0;
-      world.player.y = 0;
+      world.resetEntities();
       world.moveToSpace(world.player);
 
       let spawner = new Spawner(world);

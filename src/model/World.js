@@ -17,6 +17,30 @@ class World {
     }
   }
 
+  resetEntities() {
+    this.entities = [new Player(0, 0, 16)];
+  }
+
+  healPlayer() {
+    const indexPotionInventory = this.player.inventory.findIndex(
+      (i) => i.name === "Potion"
+    );
+    console.log(this.player.inventory);
+    if (indexPotionInventory >= 0) {
+      if (this.player.attributes.health < 10) {
+        this.player.attributes.health = 10;
+        this.player.inventory = this.player.inventory.filter(
+          (_, index) => index !== indexPotionInventory
+        );
+        this.addToHistory("Player's health restored. Potion consumed");
+      } else {
+        this.addToHistory("Player's health alredy full");
+      }
+    } else {
+      this.addToHistory("You don't have any potion to heal yourself!");
+    }
+  }
+
   addToHistory(text) {
     this.history.push(text);
     // if(this.history.length > 6) this.history.shift();

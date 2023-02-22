@@ -1,5 +1,6 @@
 export const actions = {
   MOVE: "move",
+  HEAL: "heal",
 };
 
 class InputManager {
@@ -42,6 +43,10 @@ class InputManager {
       case 40: {
         // DOWN
         this.broadcast(actions.MOVE, { x: 0, y: 1 });
+        break;
+      }
+      case 32: {
+        this.broadcast(actions.HEAL);
         break;
       }
       default:

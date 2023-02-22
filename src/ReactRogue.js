@@ -26,6 +26,11 @@ const ReactRogue = ({ width, height, tileSize }) => {
       Object.assign(newWorld, world);
       newWorld.movePlayer(data.x, data.y);
       setWorld(newWorld);
+    } else if (action === actions.HEAL) {
+      const newWorld = new World();
+      Object.assign(newWorld, world);
+      newWorld.healPlayer();
+      setWorld(newWorld);
     }
   };
 
@@ -88,9 +93,9 @@ const ReactRogue = ({ width, height, tileSize }) => {
           }}
         >
           <span style={{ color: "white" }}>Legend:</span>
+          <div style={{ flex: "30%" }}>{renderGenerics()}</div>
           <div style={{ flex: "30%" }}>{renderLegend()}</div>
           <div style={{ flex: "30%" }}>{renderMonsters()}</div>
-          <div style={{ flex: "30%" }}>{renderStairs()}</div>
         </div>
         <div
           id="legend"
@@ -130,9 +135,10 @@ const renderMonsters = () => (
   </ul>
 );
 
-const renderStairs = () => (
+const renderGenerics = () => (
   <ul>
-    <li style={{ color: "white" }}>{">"}: Stairs</li>
+    <li style={{ color: "white" }}>{"@"}: Player</li>
+    <li style={{ color: "grey" }}>{">"}: Stairs</li>
   </ul>
 );
 
