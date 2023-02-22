@@ -17,7 +17,10 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "publish:patch": "npm version patch && git push && git push --tags && npm run deploy",
+    "publish:minor": "npm version minor && git push && git push --tags && npm run deploy",
+    "publish:major": "npm version major && git push && git push --tags && npm run deploy"
   },
   "eslintConfig": {
     "extends": [
