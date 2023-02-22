@@ -25,7 +25,6 @@ class World {
     const indexPotionInventory = this.player.inventory.findIndex(
       (i) => i.name === "Potion"
     );
-    console.log(this.player.inventory);
     if (indexPotionInventory >= 0) {
       if (this.player.attributes.health < 10) {
         this.player.attributes.health = 10;
