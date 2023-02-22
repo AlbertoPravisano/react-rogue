@@ -7,6 +7,7 @@ class Player extends Entity {
     name: "Player",
     ascii: "@",
     health: 10,
+    power: 1,
   };
 
   move(dx, dy) {
@@ -19,6 +20,9 @@ class Player extends Entity {
 
   addToInventory(loot) {
     this.inventory.push(loot.attributes);
+    if (loot.attributes.name === "Long Sword") {
+      this.attributes.power = this.attributes.power + 1;
+    }
   }
 
   duplicate() {
