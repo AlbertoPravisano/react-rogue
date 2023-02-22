@@ -1,4 +1,5 @@
 import { Map } from "rot-js";
+import { verbs } from "./Entity";
 import Player from "./Player";
 
 class World {
@@ -97,7 +98,7 @@ class World {
     p.move(dx, dy);
     let entity = this.getEntityAtLocation(p.x, p.y);
     if (entity) {
-      entity.action("bump", this);
+      entity.action(verbs.BUMP, this);
       return;
     }
 

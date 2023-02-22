@@ -1,13 +1,14 @@
+export const verbs = {
+  DROP: "drop",
+  BUMP: "bump",
+};
+
 class Entity {
   constructor(x, y, size, attributes) {
     this.x = x;
     this.y = y;
     this.size = size;
     this.attributes = { ...attributes };
-  }
-
-  action(verb, world) {
-    //
   }
 
   draw(context) {

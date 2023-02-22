@@ -1,6 +1,7 @@
 import React from "react";
 import InputManager, { actions } from "./model/InputManager";
-import Spawner, { lootTable } from "./model/Spawner";
+import Spawner, { lootTable, monsterTable } from "./model/Spawner";
+import { stairsAttribute } from "./model/Stairs";
 import World from "./model/World";
 
 /**
@@ -84,10 +85,13 @@ const ReactRogue = ({ width, height, tileSize }) => {
             backgroundColor: "black",
             height: "20%",
             marginBottom: "1em",
+            display: "flex",
           }}
         >
           <span style={{ color: "white" }}>Legend:</span>
-          {renderLegend()}
+          <div style={{ flex: "30%" }}>{renderLegend()}</div>
+          <div style={{ flex: "30%" }}>{renderMonsters()}</div>
+          <div style={{ flex: "30%" }}>{renderStairs()}</div>
         </div>
         <div
           id="legend"
@@ -116,6 +120,23 @@ const renderLegend = () => (
     ))}
   </ul>
 );
+
+const renderMonsters = () => (
+  <ul>
+    {monsterTable.map((monster, index) => (
+      <li key={index} style={{ color: monster.color }}>
+        {monster.ascii}: {monster.name} (Health: {monster.health})
+      </li>
+    ))}
+  </ul>
+);
+
+const renderStairs = () => (
+  <ul>
+    <li style={{ color: "white" }}>{">"}: Stairs</li>
+  </ul>
+);
+
 const renderHistory = (history) => {
   return (
     <ul>

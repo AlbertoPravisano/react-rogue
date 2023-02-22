@@ -1,8 +1,8 @@
-import Entity from "./Entity";
+import Entity, { verbs } from "./Entity";
 
 class Monster extends Entity {
   action(verb, world) {
-    if (verb === "bump") {
+    if (verb === verbs.BUMP) {
       if (world.player.attributes.health > 0) {
         world.addToHistory(`Player attacks ${this.attributes.name}`);
         this.attributes.health = this.attributes.health - 1;

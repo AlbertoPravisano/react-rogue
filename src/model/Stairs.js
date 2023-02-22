@@ -1,16 +1,18 @@
-import Entity from "./Entity";
+import Entity, { verbs } from "./Entity";
 import Spawner from "./Spawner";
 
+export const stairsAttribute = {
+  name: "Stairs",
+  color: "black",
+  ascii: ">",
+  offset: { x: 2, y: 2 },
+};
+
 class Stairs extends Entity {
-  attributes = {
-    name: "Stairs",
-    color: "black",
-    ascii: ">",
-    offset: { x: 2, y: 2 },
-  };
+  attributes = stairsAttribute;
 
   action(verb, world) {
-    if (verb === "bump") {
+    if (verb === verbs.BUMP) {
       world.addToHistory("You move downstairs...");
       world.floor = world.floor + 1;
       world.createCellularMap();

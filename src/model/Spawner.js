@@ -14,20 +14,20 @@ export const lootTable = [
   },
 ];
 
-const monsterTable = [
-  {
-    name: "Goblin",
-    color: "green",
-    ascii: "G",
-    health: 3,
-    offset: { x: 4, y: 3 },
-  },
+export const monsterTable = [
   {
     name: "Slime",
     color: "darkgreen",
     ascii: "S",
     health: 2,
     offset: { x: 3, y: 2 },
+  },
+  {
+    name: "Goblin",
+    color: "green",
+    ascii: "G",
+    health: 3,
+    offset: { x: 4, y: 3 },
   },
   {
     name: "Ogre",
