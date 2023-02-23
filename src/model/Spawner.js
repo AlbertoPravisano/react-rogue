@@ -101,6 +101,23 @@ class Spawner {
     });
   }
 
+  spawnBoss() {
+    this.spawn(1, () => {
+      return new Monster(
+        getRandomInt(this.world.width - 1),
+        getRandomInt(this.world.height - 1),
+        this.world.tileSize,
+        {
+          name: "Demon King",
+          color: "blue",
+          ascii: "K",
+          health: 200,
+          offset: { x: 3, y: 3 },
+        }
+      );
+    });
+  }
+
   spawnStairs() {
     this.spawn(1, () => {
       return new Stairs(

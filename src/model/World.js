@@ -110,6 +110,12 @@ class World {
     return this.entities[0];
   }
 
+  get demonKing() {
+    return this.entities.find(
+      (entity) => entity.attributes.name === "Demon King"
+    );
+  }
+
   getEntityAtLocation(x, y) {
     return this.entities.find((entity) => entity.x === x && entity.y === y);
   }
