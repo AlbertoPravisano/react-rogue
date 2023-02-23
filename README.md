@@ -17,3 +17,5 @@ Map generated with: rot-js
 ## TODO
 
 - Shop for coins
+
+![image](https://user-images.githubusercontent.com/63001471/220871793-dfbf72ae-a535-4be4-bc35-1600cac87bdb.png)
