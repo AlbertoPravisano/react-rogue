@@ -3,14 +3,33 @@ import Monster from "./Monster";
 import Stairs from "./Stairs";
 
 export const lootTable = [
-  { name: "Long Sword", color: "darkgrey", ascii: "/", offset: { x: 6, y: 3 } },
-  { name: "Potion", color: "red", ascii: "!", offset: { x: 6, y: 3 } },
-  { name: "Gold Coin", color: "yellow", ascii: "$", offset: { x: 6, y: 3 } },
+  {
+    name: "Long Sword",
+    color: "darkgrey",
+    ascii: "/",
+    offset: { x: 6, y: 3 },
+    description: "+1 attack power",
+  },
+  {
+    name: "Potion",
+    color: "red",
+    ascii: "!",
+    offset: { x: 6, y: 3 },
+    description: "Press SPACE to heal",
+  },
+  {
+    name: "Gold Coin",
+    color: "yellow",
+    ascii: "$",
+    offset: { x: 6, y: 3 },
+    description: "Collect them all!",
+  },
   {
     name: "Light Armor",
     color: "lightgrey",
     ascii: "#",
     offset: { x: 6, y: 3 },
+    description: "Avoid damage once",
   },
 ];
 

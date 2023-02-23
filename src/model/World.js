@@ -18,7 +18,11 @@ class World {
   }
 
   resetEntities() {
+    var playerInventory = this.player.inventory;
     this.entities = [new Player(0, 0, 16)];
+    playerInventory.forEach((item) =>
+      this.player.addToInventory({ attributes: item })
+    );
   }
 
   healPlayer() {
@@ -27,11 +31,13 @@ class World {
     );
     if (indexPotionInventory >= 0) {
       if (this.player.attributes.health < 10) {
-        this.player.attributes.health = 10;
+        this.player.attributes.health = this.player.attributes.health + 1;
         this.player.inventory = this.player.inventory.filter(
           (_, index) => index !== indexPotionInventory
         );
-        this.addToHistory("Player's health restored. Potion consumed");
+        this.addToHistory(
+          `Player consumed a potion and now has ${this.player.attributes.health} health.`
+        );
       } else {
         this.addToHistory("Player's health alredy full");
       }

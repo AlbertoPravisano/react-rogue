@@ -39,6 +39,7 @@ const ReactRogue = ({ width, height, tileSize }) => {
     Object.assign(newWorld, world);
     newWorld.createCellularMap();
     newWorld.moveToSpace(world.player);
+
     let spawner = new Spawner(newWorld);
     spawner.spawnLoot(10);
     spawner.spawnMonster(8);
@@ -50,9 +51,6 @@ const ReactRogue = ({ width, height, tileSize }) => {
   React.useEffect(() => {
     inputManager.bindKeys();
     inputManager.subscribe(handleInput);
-
-    var pane = document.getElementById("legend");
-    pane.scrollTop = pane.offsetHeight;
 
     return () => {
       inputManager.unbindKeys();
@@ -100,7 +98,6 @@ const ReactRogue = ({ width, height, tileSize }) => {
           <div style={{ flex: "30%" }}>{renderMonsters()}</div>
         </div>
         <div
-          id="legend"
           style={{
             border: "1px solid black",
             overflowY: "scroll",
@@ -117,6 +114,17 @@ const ReactRogue = ({ width, height, tileSize }) => {
 
 export default ReactRogue;
 
+const renderGenerics = () => (
+  <ul>
+    <li title="Yourself" style={{ color: "white" }}>
+      {"@"}: Player
+    </li>
+    <li title="Your target" style={{ color: "white" }}>
+      {">"}: Stairs
+    </li>
+  </ul>
+);
+
 const renderLegend = (inventory) => (
   <ul>
     {lootTable.map((loot, index) => {
@@ -125,7 +133,7 @@ const renderLegend = (inventory) => (
         return acc;
       }, 0);
       return (
-        <li key={index} style={{ color: loot.color }}>
+        <li key={index} title={loot.description} style={{ color: loot.color }}>
           {loot.ascii}: {loot.name} (X{quantity})
         </li>
       );
@@ -140,13 +148,6 @@ const renderMonsters = () => (
         {monster.ascii}: {monster.name} (Health: {monster.health})
       </li>
     ))}
-  </ul>
-);
-
-const renderGenerics = () => (
-  <ul>
-    <li style={{ color: "white" }}>{"@"}: Player</li>
-    <li style={{ color: "grey" }}>{">"}: Stairs</li>
   </ul>
 );
 

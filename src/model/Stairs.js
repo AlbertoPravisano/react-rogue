@@ -3,7 +3,7 @@ import Spawner from "./Spawner";
 
 export const stairsAttribute = {
   name: "Stairs",
-  color: "black",
+  color: "white",
   ascii: ">",
   offset: { x: 2, y: 2 },
 };
@@ -14,6 +14,9 @@ class Stairs extends Entity {
   action(verb, world) {
     if (verb === verbs.BUMP) {
       world.addToHistory("You move downstairs...");
+      if (world.player.attributes.health < 10) {
+        world.addToHistory("Your health is restored");
+      }
       world.floor = world.floor + 1;
       world.createCellularMap();
       world.resetEntities();
