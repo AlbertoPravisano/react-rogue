@@ -111,7 +111,7 @@ class Spawner {
           name: "Demon King",
           color: "blue",
           ascii: "K",
-          health: 200,
+          health: this.world.floor * 20,
           offset: { x: 3, y: 3 },
         }
       );

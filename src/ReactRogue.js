@@ -91,7 +91,9 @@ const ReactRogue = ({ width, height, tileSize }) => {
           }}
         >
           <span style={{ color: "white" }}>Legend:</span>
-          <div style={{ flex: "30%" }}>{renderGenerics()}</div>
+          <div style={{ flex: "30%" }}>
+            {renderGenerics(world.player, world.demonKing)}
+          </div>
           <div style={{ flex: "30%" }}>
             {renderLegend(world.player.inventory)}
           </div>
@@ -114,14 +116,19 @@ const ReactRogue = ({ width, height, tileSize }) => {
 
 export default ReactRogue;
 
-const renderGenerics = () => (
+const renderGenerics = (player, demonKing) => (
   <ul>
     <li title="Yourself" style={{ color: "white" }}>
-      {"@"}: Player
+      {"@"}: Player (Health: {player.attributes.health})
     </li>
     <li title="Your target" style={{ color: "white" }}>
       {">"}: Stairs
     </li>
+    {demonKing && (
+      <li style={{ color: demonKing.attributes.color }}>
+        K: {demonKing.attributes.name} (Health: {demonKing.attributes.health})
+      </li>
+    )}
   </ul>
 );
 

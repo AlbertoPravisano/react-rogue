@@ -11,7 +11,8 @@ Map generated with: rot-js
 - Search the stair (>) to change dungeon floor. When you change floor, your health is restored.
 - Press SPACE to use healing potion and restore 1 health
 - Each Long Sword in your inventory increases your attack power of 1.
-- Each Light Armor absorbs 1 attack, then gets destroyed
+- Each Light Armor absorbs 1 attack, then gets destroyed.
+- Each 5 floors, the demon king will appear. Defeat him to proceed.
 
 ## TODO
 
