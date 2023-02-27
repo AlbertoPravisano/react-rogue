@@ -5,6 +5,8 @@ Based on the udemy course [React - Learn React with Hooks by creating a Roguelik
 
 Map generated with: rot-js
 
+![image](https://user-images.githubusercontent.com/63001471/220871793-dfbf72ae-a535-4be4-bc35-1600cac87bdb.png)
+
 ## Commands
 
 - Use WASD or arrows to move around
@@ -17,3 +19,5 @@ Map generated with: rot-js
 ## TODO
 
 - Shop for coins
+
+
