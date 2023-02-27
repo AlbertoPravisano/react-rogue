@@ -48,7 +48,9 @@ class World {
 
   addToHistory(text) {
     this.history.push(text);
-    // if(this.history.length > 6) this.history.shift();
+    if (this.history.length > 24) {
+      this.history.shift();
+    }
   }
 
   createCellularMap() {
